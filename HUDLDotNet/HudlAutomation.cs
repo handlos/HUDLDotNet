@@ -5,6 +5,7 @@ using System.Threading;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Support.UI;
 
 namespace NUnitHUDL
@@ -26,13 +27,14 @@ namespace NUnitHUDL
         private IWebDriver driver;
         private string UserEmail = "handlos@gmail.com";
         private string UserPass = "7980HUDL";
+       
 
         //Global "setup" function that happens at the beginning of each test.
         //A Chrome browser is initialized, implict waits are set to 30 seconds, and the window is maximized.
         [SetUp]
         public void SetupTest()
         {
-            driver = new ChromeDriver();
+            driver = new ChromeDriver(@"C:\VS\Hudl\WebDrivers");
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
             driver.Manage().Window.Maximize();
         }
